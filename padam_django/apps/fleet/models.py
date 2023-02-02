@@ -16,3 +16,7 @@ class Bus(models.Model):
 
     def __str__(self):
         return f"Bus: {self.licence_plate} (id: {self.pk})"
+
+
+
+
