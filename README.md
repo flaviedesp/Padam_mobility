@@ -1,3 +1,5 @@
+Je n'ai pas pris le temps de bien faire les choses, par contre, il y a certains point qui pourrais etre mieux concu si je pouvais faire le point avec l'équipe
+
 # Test technique Django / Backend
 
 L'objectif de l'exercice ci-dessous est de modéliser une base de données à partir de spécifications métiers et de 
