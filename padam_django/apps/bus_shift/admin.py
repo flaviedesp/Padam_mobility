@@ -2,18 +2,27 @@ from django.contrib import admin
 
 from .filters import DriverFilter
 from .forms import BusStopAdminForm, BusStopInBusShiftForm, BusShiftAdminForm
-from .models import (BusShift, BusStop, BusStopInBusShift, )
+from .models import (
+    BusShift,
+    BusStop,
+    BusStopInBusShift,
+)
 
 
 @admin.register(BusStop)
 class BusStopAdmin(admin.ModelAdmin):
     # form = BusStopAdminForm
-    list_display = ("name_place", "stop",)
+    list_display = (
+        "name_place",
+        "stop",
+    )
 
     list_filter = ("place__name",)
 
-    search_fields = ("name_place", "stop",)
-
+    search_fields = (
+        "name_place",
+        "stop",
+    )
 
     def name_place(self, obj):
         return obj.place.name
@@ -32,11 +41,20 @@ class BusShiftBusStopInLine(admin.TabularInline):
 @admin.register(BusShift)
 class BusShiftAdmin(admin.ModelAdmin):
     form = BusShiftAdminForm
-    list_display = ("name_bus", "name_driver", "heure_depart", "heure_arrive", "time_total",)
-    list_filter = ("bus__licence_plate", DriverFilter,)
+    list_display = (
+        "name_bus",
+        "name_driver",
+        "heure_depart",
+        "heure_arrive",
+        "time_total",
+    )
+    list_filter = (
+        "bus__licence_plate",
+        DriverFilter,
+    )
     search_fields = ("bus__licence_plate", "driver__last_name", "driver__first_name")
     exclude = ("stop",)
-    raw_id_fields=("driver", "bus")
+    raw_id_fields = ("driver", "bus")
 
     def name_bus(self, obj):
         return obj.bus.licence_plate
